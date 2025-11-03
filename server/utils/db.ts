@@ -1,9 +1,14 @@
 import mongoose from "mongoose";
-import { DB_URL } from "./config";
+import { DB_URL } from "../config";
 const dbUrl: string = DB_URL || "";
 
 const connectDB = async () => {
   try {
+    if (!dbUrl) {
+      throw new Error("Mongo Database URL not defined in config or env!");
+      return;
+    }
+
     await mongoose.connect(dbUrl).then((data: any) => {
       console.log(
         `✅ Mongo Database is connected with ${data.connection.host} `,

@@ -1,5 +1,5 @@
 import Redis from "ioredis";
-import { REDIS_URL } from "./config";
+import { REDIS_URL } from "../config";
 
 if (!REDIS_URL) {
   throw new Error("Redis URL not defined in config!");

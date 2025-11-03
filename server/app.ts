@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { ORIGIN } from "./config";
+import { ErrorMiddleware } from "./middleware/error";
 export const app = express();
 
 app.use(express.json({ limit: "50mb" }));
